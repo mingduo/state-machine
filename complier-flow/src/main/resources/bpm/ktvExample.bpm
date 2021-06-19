@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<bpm code="bpm.ktvExample" name="ktv example" type="process" description="ktv example">
+  <var name="price" description="&#x652f;&#x4ed8;&#x4ef7;&#x683c;" dataType="java.lang.Integer" inOutType="return"/>
+  <var name="totalPrice" description="&#x5b9e;&#x4ed8;&#x4ef7;" dataType="java.lang.Integer" inOutType="inner"/>
+  <var name="pList" description="&#x4eba;&#x5458;" dataType="java.util.List&lt;java.lang.String>" inOutType="param"/>
+  <end id="11" name="&#x7ed3;&#x675f;" tag="&#x597d;&#x7684;" g="101,549,30,30"/>
+  <autoTask id="12" name="&#x4ed8;&#x6b3e;" g="72,469,88,48">
+    <transition to="11" g=":-15,20"/>
+    <action type="spring-bean">
+      <actionHandle bean="mockSpringBean" clazz="complier.mock.MockSpringBean" method="payMoney">
+        <var name="p1" description="&#x4ef7;&#x683c;" dataType="java.lang.Integer" contextVarName="price" inOutType="param"/>
+      </actionHandle>
+    </action>
+  </autoTask>
+  <scriptTask id="9" name="&#x539f;&#x4ef7;" g="132,389,88,48">
+    <transition to="12"/>
+    <action type="ql">
+      <actionHandle expression="price*1">
+        <var name="price" description="&#x4ef7;&#x683c;" dataType="java.lang.Integer" contextVarName="totalPrice" inOutType="param"/>
+        <var name="price" description="&#x4ef7;&#x683c;" dataType="java.lang.Integer" contextVarName="price" inOutType="return"/>
+      </actionHandle>
+    </action>
+  </scriptTask>
+  <decision id="8" name="&#x8ba1;&#x7b97;&#x8d39;&#x7528;" g="72,309,88,48">
+    <transition to="9" priority="1" name="&#x4e0d;&#x8d85;&#x8fc7;300" g=":-15,20"/>
+    <transition to="10" priority="2" name="&#x8d85;&#x8fc7;300" expression="totalPrice>=300" g=":-15,20"/>
+    <action type="java">
+      <actionHandle clazz="complier.mock.MockJavaClazz" method="calPrice">
+        <var name="p1" description="&#x4eba;&#x6570;" dataType="java.lang.Integer" contextVarName="pList.size()" inOutType="param"/>
+        <var name="p2" description="&#x4ef7;&#x683c;" dataType="java.lang.Integer" contextVarName="totalPrice" inOutType="return"/>
+      </actionHandle>
+    </action>
+  </decision>
+  <loopProcess id="13" name="&#x5faa;&#x73af;&#x8282;&#x70b9;" collectionVarName="pList" variableName="p" indexVarName="i" variableClass="java.lang.String" startNodeId="13-1" endNodeId="13-1" g="20,75,198,190">
+    <transition to="8" g=":-15,20"/>
+    <autoTask id="13-1" name="&#x6bcf;&#x4eba;&#x5531;&#x4e00;&#x9996;&#x6b4c;" g="50,80,88,48">
+      <action type="spring-bean">
+        <actionHandle bean="mockSpringBean" clazz="complier.mock.MockSpringBean" method="sing">
+          <var name="p1" dataType="java.lang.String" contextVarName="p" inOutType="param"/>
+        </actionHandle>
+      </action>
+    </autoTask>
+  </loopProcess>
+  <start id="1" name="&#x5f00;&#x59cb;" tag="223" g="105,17,30,30">
+    <transition to="13" g=":-15,20"/>
+  </start>
+  <note id="14" comment="&#x5916;&#x6846;&#x4e3a;&#x5faa;&#x73af;&#x8282;&#x70b9;" visible="true" g="273,82,93,55">
+    <transition to="13" g=":-15,20"/>
+  </note>
+  <scriptTask id="10" name="9&#x6298;&#x4f18;&#x60e0;" g="0,385,88,48">
+    <transition to="12"/>
+    <action type="ql">
+      <actionHandle expression="(round(price*0.9,0)).intValue()">
+        <var name="price" description="&#x4ef7;&#x683c;" dataType="java.lang.Integer" contextVarName="totalPrice" inOutType="param"/>
+        <var name="price" description="&#x4ef7;&#x683c;" dataType="java.lang.Integer" contextVarName="price" inOutType="return"/>
+      </actionHandle>
+    </action>
+  </scriptTask>
+</bpm>

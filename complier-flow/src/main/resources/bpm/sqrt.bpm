@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<bpm code="bpm.sqrt" name="test" type="process" description="This is test demo.">
+  <var name="num" description="&#x5165;&#x53c2;" dataType="java.lang.Double" inOutType="param"/>
+  <var name="numSqrt" description="&#x5f00;&#x6839;&#x53f7;&#x7ed3;&#x679c;" dataType="java.lang.Double" inOutType="return"/>
+  <start id="1" name="&#x5f00;&#x59cb;" g="115,16,30,30">
+    <transition to="17" g=":-15,20"/>
+  </start>
+  <end id="11" name="&#x7ed3;&#x675f;" g="115,411,30,30"/>
+  <autoTask id="17" name="&#x8ba1;&#x7b97;&#x5e73;&#x65b9;&#x6839;" g="424,249,88,48">
+    <transition to="11" g=":-15,20"/>
+    <action type="java">
+      <actionHandle clazz="complier.mock.MockJavaClazz" method="sqrt">
+        <var name="input" dataType="java.lang.Double" contextVarName="num" inOutType="param"/>
+        <var name="output" dataType="java.lang.Double" contextVarName="numSqrt" inOutType="return"/>
+      </actionHandle>
+    </action>
+  </autoTask>
+</bpm>
