@@ -15,10 +15,6 @@ public class DemoController {
     @Resource
     private RunCase runCase;
 
-    @RequestMapping("/say")
-    public String say() {
-        return "Hello,compileflow.";
-    }
 
     @RequestMapping("/run")
     public String run() {
