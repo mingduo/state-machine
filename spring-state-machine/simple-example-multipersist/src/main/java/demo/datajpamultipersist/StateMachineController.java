@@ -103,7 +103,7 @@ public class StateMachineController {
         listener.resetMessages();
         if (currentStateMachine == null) {
             currentStateMachine = stateMachineService.acquireStateMachine(machineId, false);
-            currentStateMachine.addStateListener(listener);
+            //  currentStateMachine.addStateListener(listener);
             setId(machineId);
             currentStateMachine.start();
         } else if (!ObjectUtils.nullSafeEquals(currentStateMachine.getId(), machineId)) {
@@ -111,7 +111,7 @@ public class StateMachineController {
             currentStateMachine.stop();
             currentStateMachine = stateMachineService.acquireStateMachine(machineId, false);
             setId(machineId);
-            currentStateMachine.addStateListener(listener);
+            //currentStateMachine.addStateListener(listener);
             currentStateMachine.start();
         }
         return currentStateMachine;

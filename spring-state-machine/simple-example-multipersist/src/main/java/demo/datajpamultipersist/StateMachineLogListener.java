@@ -15,6 +15,7 @@
  */
 package demo.datajpamultipersist;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.statemachine.StateContext;
 import org.springframework.statemachine.StateContext.Stage;
 import org.springframework.statemachine.listener.StateMachineListenerAdapter;
@@ -22,6 +23,7 @@ import org.springframework.statemachine.listener.StateMachineListenerAdapter;
 import java.util.LinkedList;
 import java.util.List;
 
+@Slf4j
 public class StateMachineLogListener extends StateMachineListenerAdapter<String, String> {
 
     private final LinkedList<String> messages = new LinkedList<String>();
@@ -36,6 +38,7 @@ public class StateMachineLogListener extends StateMachineListenerAdapter<String,
 
     @Override
     public void stateContext(StateContext<String, String> stateContext) {
+        log.info("test log");
         if (stateContext.getStage() == Stage.STATE_ENTRY) {
             messages.addFirst("Enter " + stateContext.getTarget().getId());
         } else if (stateContext.getStage() == Stage.STATE_EXIT) {

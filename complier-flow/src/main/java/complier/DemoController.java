@@ -6,8 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 /**
- * @author xuan
- * @since 2020/8/16
+ *
  */
 @RestController
 public class DemoController {

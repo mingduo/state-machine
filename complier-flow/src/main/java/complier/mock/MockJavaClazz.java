@@ -2,9 +2,6 @@ package complier.mock;
 
 /**
  * Mock一个普通的JavaBean
- *
- * @author xuan
- * @since 2020/8/16
  */
 public class MockJavaClazz {
 

@@ -20,9 +20,6 @@ import java.util.List;
 
 /**
  * 报销demoController
- *
- * @author puhaiyang
- * @date 2018/12/19
  */
 @Controller
 @RequestMapping(value = "expense")

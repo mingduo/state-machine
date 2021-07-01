@@ -4,9 +4,6 @@ import org.springframework.stereotype.Component;
 
 /**
  * Mock一个SpringBean
- *
- * @author xuan
- * @since 2020/8/16
  */
 @Component("mockSpringBean")
 public class MockSpringBean {

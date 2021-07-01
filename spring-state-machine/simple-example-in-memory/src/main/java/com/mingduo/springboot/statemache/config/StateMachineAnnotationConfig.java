@@ -13,7 +13,7 @@ import java.util.Map;
  * @apiNode:
  * @since 2020/1/19
  */
-@WithStateMachine(name = "xxx")
+@WithStateMachine(name = "machine")
 public class StateMachineAnnotationConfig {
 
 

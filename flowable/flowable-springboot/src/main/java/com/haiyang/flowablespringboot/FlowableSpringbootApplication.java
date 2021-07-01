@@ -5,9 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * FlowableSpringbootApplication
- *
- * @author puhaiyang
- * @date 2018/12/19
  */
 @SpringBootApplication
 public class FlowableSpringbootApplication {

@@ -83,6 +83,8 @@ public class StateMachineConfig {
         public void configure(StateMachineConfigurationConfigurer<String, String> config)
                 throws Exception {
             config
+                    .withConfiguration().listener(new StateMachineLogListener())
+                    .and()
                     .withPersistence()
                     .runtimePersister(stateMachineRuntimePersister);
         }
